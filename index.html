@@ -1,60 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laracast Vue</title>
     <script src="https://unpkg.com/vue@3"></script>
-    <style>
-        html, body {
-            height: 100%;
-        }
-
-        body {
-            display: grid;
-            place-items: center;
-        }
-
-        .text-red {
-            color: red;
-        }
-
-        .text-green {
-            color: green;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="h-full grid place-items-center">
     <div id="app">
-        <button 
-            :class="active ? 'text-red' : 'text-green'"  
-            @click="toggle"
-        >
-            Click Me
-        </button> <!-- v-bind:class == :class ; v-on:click == @click -->
+        <section>
+            <h2 class="font-bold mb-2">Assignments</h2>
+            <ul>
+                <li v-for="assignment in assignments">
+                    <label>
+                        {{ assignment.name }}
+                        <input type="checkbox">
+                    </label>
+                </li>
+            </ul>
+
+            <pre>
+                {{ assignments }}
+            </pre>
+        </section>
     </div>
 
     <script>
-        Vue.createApp({
+        let app = {
             data() {
                 return {
-                    active: false
+                    assignments: [
+                        { name: 'Read chapter 4', complete: false },
+                        { name: 'Finish Project', complete: false },
+                        { name: 'Turn in homework', complete: false }
+                    ]
                 }
             },
+        }
 
-            methods: {
-                toggle() {
-                    this.active = ! this.active
-                }
-            },
-
-            mounted() { //this will fire automatically by Vue when the component mounts to the page
-            //    alert('Hello') 
-                setTimeout(() => {
-                    this.greeting = 'Changed';
-                }, 3000)
-            },
-        }).mount('#app');
+        Vue.createApp(app).mount('#app');
     </script>
 </body>
 </html>
