@@ -23,6 +23,13 @@
                     greeting: 'Hello World'
                 }
             },
+
+            mounted() { //this will fire automatically by Vue when the component mounts to the page
+            //    alert('Hello') 
+                setTimeout(() => {
+                    this.greeting = 'Changed';
+                }, 3000)
+            },
         }).mount('#app');
     </script>
 </body>
