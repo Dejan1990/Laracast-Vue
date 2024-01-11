@@ -8,7 +8,12 @@
 </head>
 <body>
     <div id="app">
-        {{ greeting }} ({{ greeting.length }})
+        <p>
+            <input type="text" v-model="greeting"> <!-- v-model -> bind value of the input and handle listening for when that value is change -->
+        </p>
+        <p>
+            {{ greeting }} ({{ greeting.length }})
+        </p>
     </div>
 
     <script>
