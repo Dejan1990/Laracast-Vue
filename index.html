@@ -9,15 +9,23 @@
 </head>
 <body class="h-full grid place-items-center">
     <div id="app">
-        <app-button></app-button>
+        <app-button>Submit</app-button>
     </div>
 
     <script>
         let app = {
             components: {
                 'app-button': {
-                    mounted() {
-                        alert('Hello')
+                    template: `
+                        <button class="bg-gray-200 hover:bg-gray-400 border rounded px-5 py-2 disabled:cursor-not-allowed" :disabled="processing">
+                            <slot />    
+                        </button>
+                    `,
+
+                    data() {
+                        return {
+                            processing: true
+                        }
                     },
                 }
             }
