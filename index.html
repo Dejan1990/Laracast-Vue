@@ -15,7 +15,7 @@
                 <li v-for="assignment in assignments">
                     <label>
                         {{ assignment.name }}
-                        <input type="checkbox">
+                        <input type="checkbox" v-model="assignment.complete">
                     </label>
                 </li>
             </ul>
@@ -31,7 +31,7 @@
             data() {
                 return {
                     assignments: [
-                        { name: 'Read chapter 4', complete: false },
+                        { name: 'Read chapter 4', complete: true },
                         { name: 'Finish Project', complete: false },
                         { name: 'Turn in homework', complete: false }
                     ]
