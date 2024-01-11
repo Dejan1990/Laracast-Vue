@@ -5,22 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laracast Vue</title>
     <script src="https://unpkg.com/vue@3"></script>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+        }
+
+        .text-red {
+            color: red;
+        }
+
+        .text-green {
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <p>
-            <input type="text" v-model="greeting"> <!-- v-model -> bind value of the input and handle listening for when that value is change -->
-        </p>
-        <p>
-            {{ greeting }} ({{ greeting.length }})
-        </p>
+        <button v-bind:class="buttonClasses">Click Me</button>
     </div>
 
     <script>
         Vue.createApp({
             data() {
                 return {
-                    greeting: 'Hello World'
+                    buttonClasses: 'text-green'
                 }
             },
 
