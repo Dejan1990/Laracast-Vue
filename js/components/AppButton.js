@@ -6,7 +6,10 @@ export default {
     `,
 
     props: {
-        type: String
+        type: { // this type is the name of the prop
+            type: String, // this type is the type of the prop
+            default: 'primary'
+        }
     },
 
     data() {
