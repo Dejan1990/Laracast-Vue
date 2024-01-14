@@ -5,6 +5,8 @@ export default {
         </button>
     `,
 
+    props: ['type'],
+
     data() {
         return {
             processing: true
