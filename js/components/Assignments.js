@@ -7,7 +7,7 @@ export default {
             <assignment-list title="In Progress" :assignments="filters.inProgress"></assignment-list>
             <assignment-list title="Completed" :assignments="filters.completed"></assignment-list>
 
-            <form>
+            <form @submit="add">
                 <div class="border border-gray-600 text-black">
                     <input placeholder="New Assignment..." class="p-2" />
                     <button type="submit" class="bg-white p-2 border-l">Add</button>
@@ -32,6 +32,12 @@ export default {
                 inProgress: this.assignments.filter(assignment => !assignment.complete),
                 completed: this.assignments.filter(assignment => assignment.complete)
             }
+        }
+    },
+
+    methods: {
+        add() {
+            alert("Hi")
         }
     },
 }
