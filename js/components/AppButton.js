@@ -5,7 +5,9 @@ export default {
         </button>
     `,
 
-    props: ['type'],
+    props: {
+        type: String
+    },
 
     data() {
         return {
