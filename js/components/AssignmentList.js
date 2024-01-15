@@ -10,7 +10,7 @@ export default {
                 <span>({{ assignments.length }})</span>
 
                 <assignment-tags 
-                    v-model="currentTag"
+                    v-model:currentTag="currentTag"
                     :initialTags="assignments.map(a => a.tag)"
                 />
             </h2>
