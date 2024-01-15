@@ -35,13 +35,13 @@ export default {
 
     data() {
         return {
-            currentTag: ''
+            currentTag: 'all'
         }
     },
 
     computed: {
         filteredAssignments() {
-            if (this.currentTag == '' || this.currentTag == 'all') {
+            if (this.currentTag == 'all') {
                 return this.assignments;
             }
 
