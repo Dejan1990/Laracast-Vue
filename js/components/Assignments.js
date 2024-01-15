@@ -28,7 +28,12 @@ export default {
     },
 
     created() {
-        alert('Created');
+        fetch('http://localhost:5050')
+            .then(response => response.json())
+            .then(assignments => {
+                this.assignments = assignments
+            })
+            
     },
 
     methods: {
