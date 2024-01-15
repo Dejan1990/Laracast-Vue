@@ -41,11 +41,15 @@ export default {
 
     computed: {
         filteredAssignments() {
+            if (this.currentTag == '' || this.currentTag == 'all') {
+                return this.assignments;
+            }
+
             return this.assignments.filter(a => a.tag === this.currentTag)
         },
 
         tags() {
-            return new Set(this.assignments.map(a => a.tag)) // Set -> create set of items where each item must be unique 
+            return ['all', ...new Set(this.assignments.map(a => a.tag))] 
         }
     },
 }
