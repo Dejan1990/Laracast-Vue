@@ -8,7 +8,7 @@ export default {
             <assignment-list title="In Progress" :assignments="filters.inProgress"></assignment-list>
             <assignment-list title="Completed" :assignments="filters.completed"></assignment-list>
 
-            <assignment-create :assignments="assignments"></assignment-create>
+            <assignment-create @add="add"></assignment-create>
         </section>
     `,
 
@@ -28,6 +28,16 @@ export default {
                 inProgress: this.assignments.filter(assignment => !assignment.complete),
                 completed: this.assignments.filter(assignment => assignment.complete)
             }
+        }
+    },
+
+    methods: {
+        add(name) { //name is second parameter from this.$emit('add', this.newAssignment); name == this.newAssignment
+            this.assignments.push({
+                name: name,
+                complete: false,
+                id: this.assignments.length + 1
+            })
         }
     },
 }
