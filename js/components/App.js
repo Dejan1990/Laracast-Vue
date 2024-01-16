@@ -30,6 +30,18 @@ export default {
                     This is my footer.
                 </template>
             </panel>
+
+            <panel theme="light">
+                <template v-slot:heading>
+                    This is heading
+                </template>
+
+                This is my default content.
+
+                <template v-slot:footer>
+                    This is my footer.
+                </template>
+            </panel>
         </div>
     `,
 }
