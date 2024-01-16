@@ -8,7 +8,13 @@ export default {
             <assignment-list title="In Progress" :assignments="filters.inProgress">
                 <assignment-create @add="add"></assignment-create>
             </assignment-list>
-            <assignment-list title="Completed" :assignments="filters.completed" can-toggle></assignment-list>
+            <assignment-list 
+                v-if="showCompleted"
+                title="Completed" 
+                :assignments="filters.completed" 
+                can-toggle
+                @toggle="showCompleted = !showCompleted"
+            ></assignment-list>
         </section>
     `,
 
@@ -25,6 +31,8 @@ export default {
                     name: 'Study', complete: false, id: 3, tag: 'math',
                 },
             ],
+
+            showCompleted: true
         }
     },
 

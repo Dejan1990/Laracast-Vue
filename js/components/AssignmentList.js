@@ -4,13 +4,13 @@ import AssignmentTags from "./AssignmentTags.js";
 export default {
     components: { Assignment, AssignmentTags },
     template: `
-        <section v-show="show && assignments.length" class="w-60">
+        <section v-show="assignments.length" class="w-60">
             <div class="flex justify-between items-start">
                 <h2 class="font-bold mb-2">
                     {{ title }}
                     <span>({{ assignments.length }})</span>
                 </h2>
-                <button v-show="canToggle" @click="show = false">&times;</button>
+                <button v-show="canToggle" @click="$emit('toggle')">&times;</button>
             </div>
 
             <assignment-tags 
@@ -38,8 +38,7 @@ export default {
 
     data() {
         return {
-            currentTag: 'all',
-            show: true
+            currentTag: 'all'
         }
     },
 
